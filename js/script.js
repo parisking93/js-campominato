@@ -20,7 +20,8 @@ function generaRand(range,num) {
 var range = 100;
 var num = 16;
 var numRand = generaRand(range,num);
-// console.log(numRand);
+console.log(numRand);
+
 // In seguito deve chiedere all’utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100.L’utente non può inserire più volte lo stesso numero.
 var listUtente = [];
 var count = 0;
@@ -40,6 +41,15 @@ while (count < (range - num) && chiudi) {
     // console.log(count);
     if (numRand.includes(numUtente)) {
         chiudi = false;
-        alert('hai perso hai preso una bomba');
     }
+}
+// Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
+
+// se riesci nell'impresa dico ch hai vinto
+if (count == (range - num) && chiudi) {
+    alert('WOW Hai vinto');
+} else {
+    alert('hai perso hai preso una bomba');
+    console.log('hai superato ' + count + ' round');
+    console.log('i numeri presi sono ' + listUtente);
 }
