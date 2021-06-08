@@ -43,27 +43,25 @@ function play (){
     // ritorno i valori della funzione 
     return [count, chiudi, range - num, numUtente, listUtente];
 }
-document.getElementById('gioca').addEventListener('click', play);
-
-var risult = play();
+document.getElementById('gioca').addEventListener('click', function(){
+    var risult = play();
     // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
 
     // se riesci nell'impresa dico ch hai vinto
     if (risult[0] == risult[2] && risult[1]) {
         alert('WOW Hai vinto');
-    } else if(risult[3] == null && risult[0] < risult[2] && risult[1]){
-        alert('grazie per aver giocato');
-    } else {
-        alert('hai perso hai preso una bomba');
-        if (risult[0] == 0) {
-            console.log('hai superato ' + risult[0] + ' round');
+        } else if(risult[3] == null && risult[0] < risult[2] && risult[1]){
+            alert('grazie per aver giocato');
         } else {
-            console.log('hai superato ' + (risult[0] - 1) + ' round');
-        }
-        console.log('i numeri inseriti sono ' + risult[4]);
+            alert('hai perso hai preso una bomba');
+            if (risult[0] == 0) {
+                console.log('hai superato ' + risult[0] + ' round');
+            } else {
+                console.log('hai superato ' + (risult[0] - 1) + ' round');
+            }
+            console.log('i numeri inseriti sono ' + risult[4]);
     }
-console.log(risult[4]);
-
+});
 
 
 
