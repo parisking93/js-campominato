@@ -19,18 +19,21 @@ function play (){
     while (count < (range - num) && chiudi) {
 
         var numUtente = parseInt(prompt('dammi un numero da 1 a 100'));
-        if (listUtente.includes(numUtente)){
-            alert('devi inserire  un numero da 1 a 100 che non hai inserito in precedenza')
+        if (isNaN(numUtente) || numUtente < 1 || numUtente > 100) {
+            alert('Puoi inserire solo numeri... Quest\'ultimi devono essere compresi tra 1 e 100')
         } else {
-            listUtente.push(numUtente);
-            count++;
+            if (listUtente.includes(numUtente)){
+                alert('devi inserire  un numero da 1 a 100 che non hai inserito in precedenza')
+            } else {
+                listUtente.push(numUtente);
+                count++;
+            }
+            // Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
+            // console.log(listUtente);
+            // console.log(count);
+            if (numRand.includes(numUtente)) {
+                chiudi = false;
         }
-
-        // Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
-        // console.log(listUtente);
-        // console.log(count);
-        if (numRand.includes(numUtente)) {
-            chiudi = false;
         }
     }
 
