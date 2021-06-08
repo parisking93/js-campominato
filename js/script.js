@@ -23,16 +23,23 @@ var numRand = generaRand(range,num);
 // console.log(numRand);
 // In seguito deve chiedere all’utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100.L’utente non può inserire più volte lo stesso numero.
 var listUtente = [];
-for (var i = 0; i < (range - num); i++) {
+var count = 0;
+var chiudi = true;
+while (count < (range - num) && chiudi) {
 
     var numUtente = parseInt(prompt('dammi un numero da 1 a 100'));
     if (listUtente.includes(numUtente)){
         alert('devi inserire  un numero da 1 a 100 che non hai inserito in precedenza')
     } else {
         listUtente.push(numUtente);
+        count++;
     }
+
     // Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
     // console.log(listUtente);
-    
-
+    // console.log(count);
+    if (numRand.includes(numUtente)) {
+        chiudi = false;
+        alert('hai perso hai preso una bomba');
+    }
 }
