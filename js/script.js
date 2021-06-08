@@ -18,7 +18,14 @@ function play (){
     var chiudi = true;
     while (count < (range - num) && chiudi) {
 
-        var numUtente = parseInt(prompt('dammi un numero da 1 a 100'));
+        var numUtente = prompt('dammi un numero da 1 a 100');
+        console.log(numUtente);
+        // se spingo cancel sul prompt 
+        if ( numUtente == null){
+            break;
+        }
+        numUtente = parseInt(numUtente);
+        console.log(typeof numUtente);
         if (isNaN(numUtente) || numUtente < 1 || numUtente > 100) {
             alert('Puoi inserire solo numeri... Quest\'ultimi devono essere compresi tra 1 e 100')
         } else {
@@ -42,6 +49,8 @@ function play (){
     // se riesci nell'impresa dico ch hai vinto
     if (count == (range - num) && chiudi) {
         alert('WOW Hai vinto');
+    } else if(numUtente == null && count < (range - num) && chiudi){
+        alert('grazie per aver giocato');
     } else {
         alert('hai perso hai preso una bomba');
         console.log('hai superato ' + --count + ' round');

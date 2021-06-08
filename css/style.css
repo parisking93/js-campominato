@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+body {
+    padding-top: 100px;
+}
+.container{
+    text-align: center;
+    width: 80%;
+    margin: auto;
+}
+
+.bottone {
+    padding: 5px 15px;
+    text-transform: capitalize;
+    margin-top: 20px;
+}
