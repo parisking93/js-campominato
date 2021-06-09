@@ -5,51 +5,35 @@
 // BONUS: (da fare solo se funziona tutto il resto) all’inizio il software richiede anche una difficoltà all’utente che cambia il range di numeri casuali: con difficoltà 0 => tra 1 e 100 con difficoltà 1 => tra 1 e 80 con difficoltà 2 => tra 1 e 50
 
 document.getElementById('gioca').addEventListener('click', function(){
+    // pulisco gli elementi
     document.getElementById('risultato').innerHTML = '';
     document.getElementById('numeri-inseriti').innerHTML = '';
+
+    //faccio partire la funzione play
+    document.getElementById('easy').addEventListener('click', function(){
+        var risult = play(100);
+        showUtente(risult);
+    });
+    document.getElementById('medium').addEventListener('click', function(){
+        var risult = play(80);
+        showUtente(risult);
+    })
+    document.getElementById('hard').addEventListener('click', function(){
+       var risult = play(50);
+       showUtente(risult);
+    })
     
-    var risult = play();
-    // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
-    // se riesci nell'impresa dico ch hai vinto
-    var risultatoShow = 'Hai perso... Hai preso una bomba!!';
-    var count;
-    var numeriVincenti;
-    if (risult[0] == risult[2] && risult[1]) {
-        risultatoShow = 'WOW!! Hai vinto';
-        numeriVincenti = 'i numeri vincenti inseriti sono: ' + risult[4];
-    } else if(risult[3] == null && risult[0] < risult[2] && risult[1]){
-        risultatoShow = 'grazie per aver giocato!! Alla prossima!!';
-        numeriVincenti = 'i numeri vincenti inseriti sono: ' + risult[4];
-    } else {
-        if (risult[0] == 0) {
-            count = 'hai superato ' + risult[0] + ' round';
-        } else {
-            count = 'hai superato ' + (risult[0] - 1) + ' round';
-        }
-        var lastElement = risult[4].pop();
-        numeriVincenti = 'i numeri vincenti inseriti sono: ' + risult[4];
-
-    }
-    document.getElementById('risultato').innerHTML = risultatoShow;
-    if (lastElement !== undefined){
-        document.getElementById('numeri-inseriti').innerHTML = numeriVincenti + '<br>' + 'la bomba era ' + lastElement;
-    } else {
-        document.getElementById('numeri-inseriti').innerHTML = numeriVincenti;
-    }
-
-
 });
 
 
 
 // INIZIO FUNZIONI 
 // Il computer deve generare 16 numeri casuali tra 1 e 100. I numeri non possono essere duplicati.
-function play (){
-    var range = 100;
+function play (range){
+    // var range = 100;
     var num = 16;
     var numRand = generaRand(range,num);
     console.log(numRand);
-
     // In seguito deve chiedere all’utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100.L’utente non può inserire più volte lo stesso numero.
     var listUtente = [];
     var count = 0;
@@ -58,7 +42,7 @@ function play (){
     while (count < (range - num) && chiudi) {
 
         // chiedo un numero
-        var numUtente = prompt('dammi un numero da 1 a 100');
+        var numUtente = prompt('dammi un numero da 1 a ' + range);
         // se spingo cancel sul prompt 
         if ( numUtente == null){
             break;
@@ -68,7 +52,7 @@ function play (){
             alert('Puoi inserire solo numeri... Quest\'ultimi devono essere compresi tra 1 e 100')
         } else {
             if (listUtente.includes(numUtente)){
-                alert('devi inserire  un numero da 1 a 100 che non hai inserito in precedenza')
+                alert('devi inserire  un numero da 1 a ' + range + 'che non hai inserito in precedenza')
             } else {
                 listUtente.push(numUtente);
                 count++;
@@ -96,4 +80,37 @@ function generaRand(range,num) {
         }
     }
     return arr;
+}
+
+
+
+// funzione mostra il risultato 
+function showUtente(risult) {
+    var risultatoShow = 'Hai perso... Hai preso una bomba!!';
+    var count;
+    var numeriVincenti;
+    if (risult[0] == risult[2] && risult[1]) {
+        risultatoShow = 'WOW!! Hai vinto';
+        numeriVincenti = 'i numeri vincenti inseriti sono: ' + risult[4];
+    } else if(risult[3] == null && risult[0] < risult[2] && risult[1]){
+        risultatoShow = 'grazie per aver giocato!! Alla prossima!!';
+        numeriVincenti = 'i numeri vincenti inseriti sono: ' + risult[4];
+    } else {
+        if (risult[0] == 0) {
+            count = 'hai superato ' + risult[0] + ' round';
+        } else {
+            count = 'hai superato ' + (risult[0] - 1) + ' round';
+        }
+        // elimino l'ultimo elemento he ha inserito l'utente cioè quello sbaglito 
+        var lastElement = risult[4].pop();
+        numeriVincenti = 'i numeri vincenti inseriti sono: ' + risult[4];
+    }
+
+    //mostro il risultato all'utente
+    document.getElementById('risultato').innerHTML = risultatoShow;
+    if (lastElement !== undefined){
+        document.getElementById('numeri-inseriti').innerHTML = numeriVincenti + '<br>' + 'la bomba era ' + lastElement;
+    } else {
+        document.getElementById('numeri-inseriti').innerHTML = numeriVincenti;
+    }
 }
