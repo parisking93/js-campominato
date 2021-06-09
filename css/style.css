@@ -3,13 +3,16 @@
     box-sizing: border-box;
     padding: 0;
 }
-body {
-    padding-top: 100px;
+section {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .container{
+    width: 30%;
+    min-width: 330px;
     text-align: center;
-    width: 80%;
-    margin: auto;
 }
 h4 {
     text-transform: capitalize;

@@ -4,20 +4,42 @@
 // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
 // BONUS: (da fare solo se funziona tutto il resto) all’inizio il software richiede anche una difficoltà all’utente che cambia il range di numeri casuali: con difficoltà 0 => tra 1 e 100 con difficoltà 1 => tra 1 e 80 con difficoltà 2 => tra 1 e 50
 
+document.getElementById('gioca').addEventListener('click', function(){
+    var risult = play();
+    // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
+    // se riesci nell'impresa dico ch hai vinto
+    if (risult[0] == risult[2] && risult[1]) {
+        alert('WOW Hai vinto');
+    } else if(risult[3] == null && risult[0] < risult[2] && risult[1]){
+        alert('grazie per aver giocato');
+    } else {
+        alert('hai perso hai preso una bomba');
+    if (risult[0] == 0) {
+        console.log('hai superato ' + risult[0] + ' round');
+    } else {
+        console.log('hai superato ' + (risult[0] - 1) + ' round');
+    }
+    console.log('i numeri inseriti sono ' + risult[4]);
+    }
+});
 
+
+
+// INIZIO FUNZIONI 
 // Il computer deve generare 16 numeri casuali tra 1 e 100. I numeri non possono essere duplicati.
 function play (){
     var range = 100;
     var num = 16;
     var numRand = generaRand(range,num);
-    // console.log(numRand);
 
     // In seguito deve chiedere all’utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100.L’utente non può inserire più volte lo stesso numero.
     var listUtente = [];
     var count = 0;
     var chiudi = true;
+    
     while (count < (range - num) && chiudi) {
 
+        // chiedo un numero
         var numUtente = prompt('dammi un numero da 1 a 100');
         // se spingo cancel sul prompt 
         if ( numUtente == null){
@@ -43,30 +65,7 @@ function play (){
     // ritorno i valori della funzione 
     return [count, chiudi, range - num, numUtente, listUtente];
 }
-document.getElementById('gioca').addEventListener('click', function(){
-    var risult = play();
-    // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
-
-    // se riesci nell'impresa dico ch hai vinto
-    if (risult[0] == risult[2] && risult[1]) {
-        alert('WOW Hai vinto');
-        } else if(risult[3] == null && risult[0] < risult[2] && risult[1]){
-            alert('grazie per aver giocato');
-        } else {
-            alert('hai perso hai preso una bomba');
-            if (risult[0] == 0) {
-                console.log('hai superato ' + risult[0] + ' round');
-            } else {
-                console.log('hai superato ' + (risult[0] - 1) + ' round');
-            }
-            console.log('i numeri inseriti sono ' + risult[4]);
-    }
-});
-
-
-
-
-
+// fine funzione play 
 
 
 // funzione random numeri
