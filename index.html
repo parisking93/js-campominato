@@ -6,23 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Campo minato</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@400;700&display=swap" rel="stylesheet"> 
 </head>
 <body>
     <section id ='sparisci'>
-        <div class="container">
-            <h1>Gioca al Campo Minato</h1>
-            <h4>descrizione gioco</h4>
-            <p>Il computer genera 16 numeri casuali chiamate <span class='big'>bombe</span>, l'utente deve inserire tutti i numeri compresi tra 1 e 100 cercando di non prendere nessuna<span class='big'> bomba</span></p>
-            <div class="box-risultato">
-                <h3 id="risultato"></h3>
-                <div id="numeri-inseriti"></div>
+        <div class="over-container">
+            <div class="box-image">
+                <img src="img/bomba.png" alt="bomba">
             </div>
-            <button id="gioca" class="bottone" >gioca</button>
-            <div id="box-button" class ="hide">
-                <h3>Scegli il livello giusto per te!!!</h3>
-                <button class="bottone" id="easy">easy</button>
-                <button class="bottone" id="medium">medium</button>
-                <button class="bottone" id="hard">hard</button>
+            <div class="container">
+                <h1>Gioca al Campo Minato</h1>
+                <h4>descrizione gioco</h4>
+                <p>Il computer genera 16 numeri casuali chiamate <span class='big'>bombe</span>, l'utente deve inserire tutti i numeri compresi tra 1 e 100 cercando di non prendere nessuna<span class='big'> bomba</span></p>
+                <div class="box-risultato">
+                    <h3 id="risultato"></h3>
+                    <div id="numeri-inseriti"></div>
+                </div>
+                <button id="gioca" class="bottone" >gioca</button>
+                <div id="box-button" class ="hide">
+                    <h3>Scegli il livello giusto per te!!!</h3>
+                    <button class="bottone" id="easy">easy</button>
+                    <button class="bottone" id="medium">medium</button>
+                    <button class="bottone" id="hard">hard</button>
+                </div>
             </div>
         </div>
     </section>

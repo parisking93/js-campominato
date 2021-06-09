@@ -20,13 +20,26 @@
 section {
     height: 90vh;
     display: flex;
+    align-items: center;
+}
+.over-container {
+    display: flex;
     justify-content: center;
     align-items: center;
+}
+.box-image {
+    width: 30%;
+    max-width: 300px;
+}
+.box-image img{
+    width: 100%;
 }
 .container{
     width: 30%;
     min-width: 330px;
     text-align: center;
+    line-height: 25px;
+    font-family: 'Baloo Tammudu 2', cursive;
 }
 h4 {
     text-transform: capitalize;
@@ -45,7 +58,7 @@ p .big{
 .bottone {
     padding: 5px 15px;
     text-transform: capitalize;
-    margin: 20px 10px;
+    margin: 20px 1vw;
     font-weight: bold;
 }
 .buttons {
