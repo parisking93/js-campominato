@@ -4,7 +4,7 @@
 // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
 // BONUS: (da fare solo se funziona tutto il resto) all’inizio il software richiede anche una difficoltà all’utente che cambia il range di numeri casuali: con difficoltà 0 => tra 1 e 100 con difficoltà 1 => tra 1 e 80 con difficoltà 2 => tra 1 e 50
 
-
+document.getElementById('gioca').focus();
 
 document.getElementById('gioca').addEventListener('click', function(){
 
@@ -22,6 +22,7 @@ document.getElementById('easy').addEventListener('click', function(){
     var risult = play(100);
     showUtente(risult)
     showAfterClick();
+    document.getElementById('gioca').focus();
 
 });
 document.getElementById('medium').addEventListener('click', function(){
@@ -30,6 +31,8 @@ document.getElementById('medium').addEventListener('click', function(){
     var risult = play(80);
     showUtente(risult)
     showAfterClick();
+    document.getElementById('gioca').focus();
+
 })
 document.getElementById('hard').addEventListener('click', function(){
     showClick();
@@ -37,6 +40,8 @@ document.getElementById('hard').addEventListener('click', function(){
     var risult = play(50);
     showUtente(risult)
     showAfterClick();
+    document.getElementById('gioca').focus();
+
 })
 
 // INIZIO FUNZIONI 

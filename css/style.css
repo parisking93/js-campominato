@@ -71,3 +71,8 @@ p .big{
 .buttons h3 {
     margin: 10px 0;
 }
+
+/* HOVER  */
+.bottone:hover {
+    cursor: pointer;
+}
