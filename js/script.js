@@ -5,26 +5,35 @@
 // BONUS: (da fare solo se funziona tutto il resto) all’inizio il software richiede anche una difficoltà all’utente che cambia il range di numeri casuali: con difficoltà 0 => tra 1 e 100 con difficoltà 1 => tra 1 e 80 con difficoltà 2 => tra 1 e 50
 
 document.getElementById('gioca').addEventListener('click', function(){
+
     document.getElementById('box-button').className = "show buttons";
-    document.getElementById('gioca').className = "bottone hide"
-    // pulisco gli elementi
-    document.getElementById('risultato').innerHTML = '';
-    document.getElementById('numeri-inseriti').innerHTML = '';
+    document.getElementById('gioca').className = "bottone hide";
+    document.getElementById('risultato').className = "hide";
+    document.getElementById('numeri-inseriti').className = "hide";
 
     //faccio partire la funzione play
     document.getElementById('easy').addEventListener('click', function(){
+        showClick();
+        document.getElementById('sparisci').className = "hide";
         var risult = play(100);
+        showAfterClick();
         showUtente(risult);
+        console.log(risult);
     });
     document.getElementById('medium').addEventListener('click', function(){
+        showClick();
+        document.getElementById('sparisci').className = "hide";
         var risult = play(80);
+        showAfterClick();
         showUtente(risult);
     })
     document.getElementById('hard').addEventListener('click', function(){
-       var risult = play(50);
-       showUtente(risult);
+        showClick();
+        document.getElementById('sparisci').className = "hide";
+        var risult = play(50);
+        showAfterClick();
+        showUtente(risult);
     })
-    
 });
 
 
@@ -51,7 +60,7 @@ function play (range){
         }
         numUtente = parseInt(numUtente);
         if (isNaN(numUtente) || numUtente < 1 || numUtente > range) {
-            alert('Puoi inserire solo numeri... Quest\'ultimi devono essere compresi tra 1 e 100')
+            alert('Puoi inserire solo numeri... Quest\'ultimi devono essere compresi tra 1 e ' + range)
         } else {
             if (listUtente.includes(numUtente)){
                 alert('devi inserire  un numero da 1 a ' + range + 'che non hai inserito in precedenza')
@@ -70,21 +79,6 @@ function play (range){
     return [count, chiudi, range - num, numUtente, listUtente];
 }
 // fine funzione play 
-
-
-// funzione random numeri
-function generaRand(range,num) {
-    var arr =[];
-    while (arr.length < num) {
-        var a = Math.floor((Math.random() * range)+1);
-        if (!arr.includes(a)) {
-            arr.push(a);
-        }
-    }
-    return arr;
-}
-
-
 
 // funzione mostra il risultato 
 function showUtente(risult) {
@@ -115,4 +109,27 @@ function showUtente(risult) {
     } else {
         document.getElementById('numeri-inseriti').innerHTML = numeriVincenti;
     }
+}
+
+// funzione che fa sparire e apparire il risultato ai click 
+function showClick() {
+    document.getElementById('risultato').className = "show";
+    document.getElementById('numeri-inseriti').className = "show";
+}
+function showAfterClick() {
+    document.getElementById('sparisci').className = "show-f";
+    document.getElementById('gioca').className = "bottone show-i";
+    document.getElementById('box-button').className = "hide buttons";
+}
+
+// funzione random numeri
+function generaRand(range,num) {
+    var arr =[];
+    while (arr.length < num) {
+        var a = Math.floor((Math.random() * range)+1);
+        if (!arr.includes(a)) {
+            arr.push(a);
+        }
+    }
+    return arr;
 }

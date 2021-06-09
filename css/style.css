@@ -10,6 +10,12 @@
 .show{
     display: block;
 }
+.show-f{
+    display: flex;
+}
+.show-i{
+    display: inline-block;
+}
 /* FINE COMMONS    */
 section {
     height: 90vh;
