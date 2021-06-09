@@ -13,19 +13,21 @@
     <section id ='sparisci'>
         <div class="over-container">
             <div class="box-image">
-                <img src="img/bomba.png" alt="bomba">
+                <img class ="show-slow" src="img/bomba.png" alt="bomba">
             </div>
             <div class="container">
-                <h1>Gioca al Campo Minato</h1>
-                <h4>descrizione gioco</h4>
-                <p>Il computer genera 16 numeri casuali chiamate <span class='big'>bombe</span>, l'utente deve inserire tutti i numeri compresi tra 1 e 100 cercando di non prendere nessuna<span class='big'> bomba</span></p>
-                <div class="box-risultato">
+                <h1 class="show-slow-scale">Gioca al Campo Minato</h1>
+                <div id="box-descrizione" class ="show-slow">
+                    <h4 id="descrizione">descrizione gioco</h4>
+                    <p id='parag'>Il computer genera 16 numeri casuali chiamate <span class='big'>bombe</span>, l'utente deve inserire tutti i numeri compresi tra 1 e 100 cercando di non prendere nessuna<span class='big'> bomba</span></p>
+                </div>
+                <div class="box-risultato show-slow">
                     <h3 id="risultato"></h3>
                     <div id="numeri-inseriti"></div>
                 </div>
-                <button id="gioca" class="bottone" >gioca</button>
+                <button id="gioca" class="bottone show-slow-scale" >gioca</button>
                 <div id="box-button" class ="hide">
-                    <h3>Scegli il livello giusto per te!!!</h3>
+                    <h3 class="show-slow-scale-fast">Scegli il livello giusto per te!!!</h3>
                     <button class="bottone" id="easy">easy</button>
                     <button class="bottone" id="medium">medium</button>
                     <button class="bottone" id="hard">hard</button>

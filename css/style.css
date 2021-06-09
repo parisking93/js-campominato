@@ -16,6 +16,26 @@
 .show-i{
     display: inline-block;
 }
+.show-slow{
+    animation: slow 1.5s ease-in-out 1;
+}
+.show-slow-scale{
+    animation: scaled 1.5s ease-in-out 1;
+}
+.show-slow-scale-fast{
+    animation: scaled 0.8s linear 1;
+}
+@keyframes slow {
+    0% {opacity: 0;}
+    40% {opacity: 0;}
+    100%{opacity: 1;}
+}
+@keyframes scaled {
+    0% {transform: scale(0);opacity: 0;}
+    30% {opacity: 0;}
+    80% {transform: scale(1.1);opacity: 1;}
+    100%{transform: scale(1);}
+}
 /* FINE COMMONS    */
 section {
     height: 90vh;
@@ -48,6 +68,10 @@ section {
 h4 {
     text-transform: capitalize;
     margin: 20px 0;
+    height: auto;
+}
+p {
+    height: auto;
 }
 p .big{
     font-weight: bold;
@@ -64,6 +88,7 @@ p .big{
     text-transform: capitalize;
     margin: 20px 1vw;
     font-weight: bold;
+    transition: all 0.3s ease-in-out;
 }
 .buttons {
     padding: 10px;
@@ -75,4 +100,5 @@ p .big{
 /* HOVER  */
 .bottone:hover {
     cursor: pointer;
+    transform: scale(1.1);
 }

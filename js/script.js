@@ -3,7 +3,6 @@
 // Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero. La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.
 // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
 // BONUS: (da fare solo se funziona tutto il resto) all’inizio il software richiede anche una difficoltà all’utente che cambia il range di numeri casuali: con difficoltà 0 => tra 1 e 100 con difficoltà 1 => tra 1 e 80 con difficoltà 2 => tra 1 e 50
-
 document.getElementById('gioca').focus();
 
 document.getElementById('gioca').addEventListener('click', function(){
@@ -17,29 +16,35 @@ document.getElementById('gioca').addEventListener('click', function(){
 
 //faccio partire la funzione play
 document.getElementById('easy').addEventListener('click', function(){
+    document.getElementById('gioca').className = 'bottone';
     showClick();
     document.getElementById('sparisci').className = "hide";
     var risult = play(100);
     showUtente(risult)
     showAfterClick();
+    document.getElementById('gioca').className = 'bottone show-slow-scale';
     document.getElementById('gioca').focus();
 
 });
 document.getElementById('medium').addEventListener('click', function(){
+    document.getElementById('gioca').className = 'bottone';
     showClick();
     document.getElementById('sparisci').className = "hide";
     var risult = play(80);
     showUtente(risult)
     showAfterClick();
+    document.getElementById('gioca').className = 'bottone show-slow-scale';
     document.getElementById('gioca').focus();
 
 })
 document.getElementById('hard').addEventListener('click', function(){
+    document.getElementById('gioca').className = 'bottone show-slow-scale';
     showClick();
     document.getElementById('sparisci').className = "hide";
     var risult = play(50);
     showUtente(risult)
     showAfterClick();
+    document.getElementById('gioca').className = 'bottone show-slow-scale';
     document.getElementById('gioca').focus();
 
 })
