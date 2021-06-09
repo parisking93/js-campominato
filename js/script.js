@@ -4,6 +4,8 @@
 // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
 // BONUS: (da fare solo se funziona tutto il resto) all’inizio il software richiede anche una difficoltà all’utente che cambia il range di numeri casuali: con difficoltà 0 => tra 1 e 100 con difficoltà 1 => tra 1 e 80 con difficoltà 2 => tra 1 e 50
 
+
+
 document.getElementById('gioca').addEventListener('click', function(){
 
     document.getElementById('box-button').className = "show buttons";
@@ -11,32 +13,31 @@ document.getElementById('gioca').addEventListener('click', function(){
     document.getElementById('risultato').className = "hide";
     document.getElementById('numeri-inseriti').className = "hide";
 
-    //faccio partire la funzione play
-    document.getElementById('easy').addEventListener('click', function(){
-        showClick();
-        document.getElementById('sparisci').className = "hide";
-        var risult = play(100);
-        showAfterClick();
-        showUtente(risult);
-        console.log(risult);
-    });
-    document.getElementById('medium').addEventListener('click', function(){
-        showClick();
-        document.getElementById('sparisci').className = "hide";
-        var risult = play(80);
-        showAfterClick();
-        showUtente(risult);
-    })
-    document.getElementById('hard').addEventListener('click', function(){
-        showClick();
-        document.getElementById('sparisci').className = "hide";
-        var risult = play(50);
-        showAfterClick();
-        showUtente(risult);
-    })
 });
 
+//faccio partire la funzione play
+document.getElementById('easy').addEventListener('click', function(){
+    showClick();
+    document.getElementById('sparisci').className = "hide";
+    var risult = play(100);
+    showUtente(risult)
+    showAfterClick();
 
+});
+document.getElementById('medium').addEventListener('click', function(){
+    showClick();
+    document.getElementById('sparisci').className = "hide";
+    var risult = play(80);
+    showUtente(risult)
+    showAfterClick();
+})
+document.getElementById('hard').addEventListener('click', function(){
+    showClick();
+    document.getElementById('sparisci').className = "hide";
+    var risult = play(50);
+    showUtente(risult)
+    showAfterClick();
+})
 
 // INIZIO FUNZIONI 
 // Il computer deve generare 16 numeri casuali tra 1 e 100. I numeri non possono essere duplicati.
