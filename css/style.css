@@ -1,8 +1,16 @@
+/* COMMONS  */
 *{
     margin: 0;
     box-sizing: border-box;
     padding: 0;
 }
+.hide {
+    display: none;
+}
+.show{
+    display: block;
+}
+/* FINE COMMONS    */
 section {
     height: 90vh;
     display: flex;
@@ -31,5 +39,12 @@ p .big{
 .bottone {
     padding: 5px 15px;
     text-transform: capitalize;
-    margin-top: 20px;
+    margin: 20px 10px;
+    font-weight: bold;
+}
+.buttons {
+    padding: 10px;
+}
+.buttons h3 {
+    margin: 10px 0;
 }

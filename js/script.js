@@ -5,6 +5,8 @@
 // BONUS: (da fare solo se funziona tutto il resto) all’inizio il software richiede anche una difficoltà all’utente che cambia il range di numeri casuali: con difficoltà 0 => tra 1 e 100 con difficoltà 1 => tra 1 e 80 con difficoltà 2 => tra 1 e 50
 
 document.getElementById('gioca').addEventListener('click', function(){
+    document.getElementById('box-button').className = "show buttons";
+    document.getElementById('gioca').className = "bottone hide"
     // pulisco gli elementi
     document.getElementById('risultato').innerHTML = '';
     document.getElementById('numeri-inseriti').innerHTML = '';
@@ -48,7 +50,7 @@ function play (range){
             break;
         }
         numUtente = parseInt(numUtente);
-        if (isNaN(numUtente) || numUtente < 1 || numUtente > 100) {
+        if (isNaN(numUtente) || numUtente < 1 || numUtente > range) {
             alert('Puoi inserire solo numeri... Quest\'ultimi devono essere compresi tra 1 e 100')
         } else {
             if (listUtente.includes(numUtente)){
