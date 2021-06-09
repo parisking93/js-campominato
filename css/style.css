@@ -22,7 +22,12 @@ p .big{
     font-weight: bold;
     text-transform: uppercase;
 }
-
+.box-risultato {
+    margin: 20px 0;
+}
+#risultato {
+    margin: 10px 0;
+}
 .bottone {
     padding: 5px 15px;
     text-transform: capitalize;
